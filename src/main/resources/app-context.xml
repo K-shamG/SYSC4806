@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+                "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+    <bean id="mainFrame" class="addressbook.ui.MainFrame" init-method="init">
+        <property name="contentPane">
+            <ref bean="mainPanel"/>
+        </property>
+        <property name="title">
+            <value>My Address Book</value>
+        </property>
+    </bean>
+    <bean id="mainPanel" class=
+            "addressbook.ui.BoxLayoutPanel" init-method="init">
+        <property name="axis">
+            <value>1</value>
+        </property>
+        <property name="panelComponents">
+            <list>
+                <ref bean="itemScrollPane"/>
+                <ref bean="buttonPanel"/>
+            </list>
+        </property>
+    </bean>
+    <bean id="itemScrollPane" class="javax.swing.JScrollPane">
+        <constructor-arg>
+            <ref bean="buddyTable"/>
+        </constructor-arg>
+    </bean>
+    <bean id="buddies" class="java.util.ArrayList">
+        <constructor-arg>
+            <list>
+                <value>Name:      Phone Number:</value>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <bean id="buddyTableModel" class="addressbook.ui.BuddyTableModel">
+        <property name="buddies">
+            <ref bean="buddies"/>
+        </property>
+    </bean>
+    <bean id="names" class="java.util.ArrayList">
+        <constructor-arg>
+            <list>
+                <value>Kshamina</value>
+                <value>Grace</value>
+                <value>Michelle</value>
+            </list>
+        </constructor-arg>
+    </bean>
+    <bean id="numbers" class="java.util.ArrayList">
+        <constructor-arg>
+            <list>
+                <value>613-444-4444</value>
+                <value>613-555-4444</value>
+                <value>613-666-4444</value>
+            </list>
+        </constructor-arg>
+    </bean>
+    <bean id="buddyTable" class="javax.swing.JTable">
+        <property name="model">
+            <ref bean="buddyTableModel"/>
+        </property>
+    </bean>
+    <bean id="buttonPanel" class="addressbook.ui.BoxLayoutPanel" init-method="init">
+        <property name="axis">
+            <!--  "0" corresponds to BoxLayout.X_AXIS -->
+            <value>0</value>
+        </property>
+        <property name="panelComponents">
+            <list>
+                <ref bean="addNewButton"/>
+            </list>
+        </property>
+    </bean>
+    <bean id="addNewButton" class="addressbook.ui.button.ActionListenerButton" init-method="init">
+        <property name="actionListener">
+            <ref bean="addNewButtonActionListener"/>
+        </property>
+        <property name="text">
+            <value>Add New</value>
+        </property>
+    </bean>
+    <bean id="addNewButtonActionListener"
+          class="addressbook.ui.button.AddNewButtonActionListener">
+        <property name="buddies">
+            <ref bean="buddies"/>
+        </property>
+        <property name="table">
+            <ref bean="buddyTable"/>
+        </property>
+    </bean>
+</beans>

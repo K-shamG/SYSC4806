@@ -1,8 +1,10 @@
+package addressbook;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-@Entity(name = "BuddyInfo")
+@Entity(name = "addressbook.BuddyInfo")
 public class BuddyInfo {
     @Id
     private String name;

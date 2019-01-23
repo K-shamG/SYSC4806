@@ -1,11 +1,10 @@
+import addressbook.BuddyInfo;
 import org.junit.Before;
 import org.junit.Test;
-import org.sqlite.SQLiteConfig;
 
 import javax.persistence.*;
 
 import java.util.List;
-import java.util.Properties;
 
 import static org.junit.Assert.*;
 

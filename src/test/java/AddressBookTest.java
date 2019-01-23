@@ -1,3 +1,5 @@
+import addressbook.AddressBook;
+import addressbook.BuddyInfo;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -67,7 +69,7 @@ public class AddressBookTest {
     @Test
     public void testClear(){
         addressBook.clear();
-        assertEquals("AddressBook should be empty", 0, addressBook.size());
+        assertEquals("addressBook should be empty", 0, addressBook.size());
     }
 
     @Test
@@ -95,14 +97,14 @@ public class AddressBookTest {
         tx.begin();
 
         // Persist buddies in address book
-//        for(BuddyInfo buddy: book.getBuddies()) {
+//        for(addressbook.BuddyInfo buddy: book.getBuddies()) {
 //            em.persist(buddy);
 //        }
         em.persist(book);
         tx.commit();
 
         // Query buddies in DB
-        Query q = em.createQuery("SELECT addrBook from AddressBook addrBook");
+        Query q = em.createQuery("SELECT addrBook from addressBook addrBook");
         @SuppressWarnings("unchecked")
         List<AddressBook> ab = q.getResultList();
 

@@ -1,8 +1,10 @@
+package addressbook;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity(name = "AddressBook")
+@Entity(name = "addressBook")
 public class AddressBook {
     private Long id;
     private List<BuddyInfo> buddies;
@@ -62,13 +64,15 @@ public class AddressBook {
     }
 
     public static void main(String[] args) {
-        AddressBook book = new AddressBook();
-        BuddyInfo buddy1 = new BuddyInfo("Kshamina", "6133333333");
-        BuddyInfo buddy2 = new BuddyInfo("Kshamina2", "6134444444");
-        book.addBuddy(buddy1);
-        book.addBuddy(buddy2);
-
-        System.out.print(book.toString());
+        Launcher launcher = new Launcher();
+        launcher.launch();
+//        addressbook.AddressBook book = new addressbook.AddressBook();
+//        addressbook.BuddyInfo buddy1 = new addressbook.BuddyInfo("Kshamina", "6133333333");
+//        addressbook.BuddyInfo buddy2 = new addressbook.BuddyInfo("Kshamina2", "6134444444");
+//        book.addBuddy(buddy1);
+//        book.addBuddy(buddy2);
+//
+//        System.out.print(book.toString());
     }
 
 }
