@@ -1,9 +1,13 @@
+package addressbook;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity(name = "AddressBook")
+@Entity
 public class AddressBook {
+    @Id
+    @GeneratedValue
     private Long id;
     private List<BuddyInfo> buddies;
 
@@ -52,10 +56,10 @@ public class AddressBook {
         return buddyList;
     }
 
-    @OneToMany(mappedBy = "book", cascade = CascadeType.ALL)
-    public List<BuddyInfo> getBuddies() {
-        return buddies;
-    }
+//    @OneToMany(mappedBy = "book", cascade = CascadeType.ALL)
+//    public List<BuddyInfo> getBuddies() {
+//        return buddies;
+//    }
 
     public void setBuddies(List<BuddyInfo> buddies) {
         this.buddies = buddies;
