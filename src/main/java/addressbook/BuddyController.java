@@ -27,7 +27,7 @@ public class BuddyController {
         m.addAttribute("buddy", new BuddyInfo());
         List<BuddyInfo> buddies = (List<BuddyInfo>) repository.findAll();
         m.addAttribute("buddies", buddies);
-        return "result";
+        return "add";
     }
 
     @RequestMapping("/delete")
@@ -39,7 +39,7 @@ public class BuddyController {
         model.addAttribute("buddy", new BuddyInfo());
         List<BuddyInfo> buddies = (List<BuddyInfo>) repository.findAll();
         model.addAttribute("buddies", buddies);
-        return "result";
+        return "add";
     }
 
 }
