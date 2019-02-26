@@ -24,7 +24,7 @@ public class HandleHttpRequestTest {
 
     @Test
     public void shouldReturnDefaultMessage() throws Exception {
-        this.mock.perform(get("/add")).andDo(print()).andExpect(status().isOk())
+        this.mock.perform(get("/")).andDo(print()).andExpect(status().isOk())
                 .andExpect(content().string(containsString("Name")));
     }
 }

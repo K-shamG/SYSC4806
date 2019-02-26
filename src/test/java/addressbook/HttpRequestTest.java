@@ -21,7 +21,7 @@ public class HttpRequestTest {
 
     @Test
     public void addShouldReturnFormLabel() throws Exception {
-        assertTrue(this.restTemplate.getForObject("http://localhost:" + port + "/add",
+        assertTrue(this.restTemplate.getForObject("http://localhost:" + port + "/",
                 String.class).contains("Name"));
     }
 }
