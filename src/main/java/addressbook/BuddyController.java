@@ -7,27 +7,22 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+@RestController
 public class BuddyController {
     @Autowired
     BuddyRepository repository;
 
-    @GetMapping("/add")
-    public String findAllBuddies(Model model) {
-        model.addAttribute("buddy", new BuddyInfo());
-        List<BuddyInfo> buddies = (List<BuddyInfo>) repository.findAll();
-        model.addAttribute("buddies", buddies);
-        return "add";
-    }
-
     @PostMapping("/add")
-    public String add(@ModelAttribute BuddyInfo buddy, Model m) {
-        System.out.println("Buddy to add: " + buddy.getName());
-        repository.save(buddy);
+    public @ResponseBody BuddyInfo add(@ModelAttribute BuddyInfo buddy, Model m) {
+//        System.out.println("************** BUDDY TO ADD: " + buddy.toString());
         m.addAttribute("buddy", new BuddyInfo());
-        List<BuddyInfo> buddies = (List<BuddyInfo>) repository.findAll();
-        m.addAttribute("buddies", buddies);
-        return "add";
+        repository.save(buddy);
+//        List<BuddyInfo> buddies = (List<BuddyInfo>) repository.findAll();
+//        System.out.println("**********************BUDDIES ***************");
+//        for(BuddyInfo b: buddies) {
+//            System.out.println("**********************" + b.toString());
+//        }
+        return buddy;
     }
 
     @RequestMapping("/delete")

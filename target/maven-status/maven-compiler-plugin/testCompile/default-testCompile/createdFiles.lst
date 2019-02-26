@@ -1,0 +1,4 @@
+addressbook\WebLayerTest.class
+addressbook\ApplicationTest.class
+addressbook\HttpRequestTest.class
+addressbook\HandleHttpRequestTest.class

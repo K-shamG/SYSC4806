@@ -3,10 +3,11 @@
 <head>
     <title>Address Book</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 </head>
 <body>
 <h1>Add New Buddy</h1>
-<form action="#" th:action="@{/add}" th:object="${buddy}" method="post">
+<form  id="form" th:action="@{/add}" th:object="${buddy}" method="post">
     <p>Name: <input type="text" th:field="*{name}" /></p>
     <p>Phone Number: <input type="text" th:field="*{phoneNumber}" /></p>
     <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
@@ -18,12 +19,12 @@
         <th width="120">Name</th>
         <th width="120">Phone Number</th>
     </tr>
-    <tr th:each="buddy : ${buddies}">
-        <td th:text="${buddy.name}"></td>
-        <td th:text="${buddy.phoneNumber}"></td>
-        <td><a th:href = "@{/delete(name=${buddy.name})}" >Delete</a></td>
-    </tr>
+    <!--<tr th:each="buddy : ${buddies}">-->
+        <!--<td th:text="${buddy.name}"></td>-->
+        <!--<td th:text="${buddy.phoneNumber}"></td>-->
+        <!--<td><a th:href = "@{/delete(name=${buddy.name})}" >Delete</a></td>-->
+    <!--</tr>-->
 </table>
-
+<script src="/js/buddy.js" th:href="@{/js/buddy.js}"></script>
 </body>
 </html>
