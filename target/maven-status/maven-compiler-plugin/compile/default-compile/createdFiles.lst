@@ -1,0 +1,7 @@
+addressbook\AddressBook.class
+addressbook\ViewConfig.class
+addressbook\BuddyInfo.class
+addressbook\Application.class
+addressbook\BuddyRepository.class
+addressbook\BuddyController.class
+addressbook\WebController.class

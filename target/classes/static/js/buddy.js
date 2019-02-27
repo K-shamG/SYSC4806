@@ -22,8 +22,11 @@ function ajax_add() {
         data: JSON.stringify({name:name, phoneNumber:phoneNumber}),
         dataType: 'json',
         success: function (result) {
-            var newRow = '<tr><td>' + result.name + '</td><td>' + result.phoneNumber + '</td></tr>';
-            $('.tg > tbody:last-child').append(newRow);
+            // if(result == "Done") {
+                var newRow = '<tr><td>' + result.name + '</td><td>' + result.phoneNumber + '</td></tr>';
+                $('.tg > tbody:last-child').append(newRow);
+            // }
+            alert(result);
         },
         error : function(e) {
             alert("Error: " + e);
